@@ -4,6 +4,9 @@
 # 默认以系统环境进行测试，可使用以下方法对dbus-daemon进行测试：
 # dbus-daemon --session --print-address
 # ./test.py unix:path=/tmp/dbus-pgzTfCGOr7,guid=8061d47acfcdedf415fdc56265d6f700
+# 普通测试会测试方法调用，调用方法并且读取返回值后的时间 - 方法调用前的时间
+# 普通测试还包含了信号测试，客户端接受到信号的时间 - 服务端发送信号的时间
+# ltp 测试会测试高频方法调用时间，每次调用100此方法，调用方法后的时间 - 调用方法前的时间
 
 import subprocess
 import os
